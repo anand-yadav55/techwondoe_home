@@ -24,12 +24,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
+### Checklist
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] Each section of the homepage must be a separate react component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] No hardcoding of text in react app. All the content (text and images) must be coming from a Headless CMS through its API (Example API reference ).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Prettier and Linter configuration
+
+- [x] Readme file on how to deploy and run the service.
+
+- [x] Add a checklist of the above items on ReadMe and check all the items before submitting the assignment.
