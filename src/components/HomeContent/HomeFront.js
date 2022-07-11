@@ -1,6 +1,5 @@
 import Button from "../Button"
 export default function HomeFront(props){
-    console.log(props)
     props = props.content
     return(
         <section className="section front">

@@ -2,7 +2,6 @@ import Button from "../Button";
 
 export default function Services(props){
     props = props.content;
-    console.log(props)
     return(
         <section className="section services">
             <h3>{props.contentText}</h3>

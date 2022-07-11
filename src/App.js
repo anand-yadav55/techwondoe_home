@@ -23,35 +23,28 @@ function App() {
     client.getEntries().then((res)=>{
       //  let res = DATA;
        setReviews([]);
-        console.log(res);
+        // console.log(res);
         for(let i=0; i<res.items.length; i++){
           let field = res.items[i].fields;
-          // console.log(field.contentText)
           if(field.contentText === "BrandLogo"){
             setBrandLogo(field.images.fields.file.url)
           }
           else if(field.contentText === "Contact") {
-            // console.log("contact");
             setContact(field);
           }
           else if(field.contentText === "why us?") {
             setWhyus(field);
-            // console.log("whyus"+JSON.stringify(field))
           }
           else if(field.contentText === "clients"){
-            // console.log("client"+JSON.stringify(field))
             setClients(field);
           } 
           else if(field.contentText === "Our services"){
-            // console.log('services');
             setServices(field);
           }
           else if(field.contentText === "front"){
-            // console.log('front');
             setFront(field);
           }
           else if(field.contentText === "Blog"){
-            // console.log("blog");
             setBlog(field);
           }
           else if(field.contentText === "Testimonials" || field.author){
@@ -71,7 +64,7 @@ function App() {
   }, []);//[brandLogo, contact, whyus, clients, services, front, blog, testimonial])
   return (
     <div className="App">
-      <Header logo={brandLogo}/>
+      <Header logo={brandLogo} menuItem={footerContent}/>
       <Content contact={contact} whyus={whyus} clients={clients} services={services} front={front} blog={blog} testimonial={testimonial} reviews={reviews}/>
       <Footer logo={brandLogo} content={footerContent}/>
     </div>

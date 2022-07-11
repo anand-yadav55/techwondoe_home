@@ -9,7 +9,8 @@ import Blogs from './Blogs';
 export default function Content(props){
     return(
         <div className="home-content">
-            {console.log(props)}
+            <div className='floater'>ENQUIRE NOW</div>
+            <div className='floater'>LINKEDIN</div>
             {props.front && <HomeFront content={props.front}/>}
             {props.services && <Services content={props.services}/>}
             {props.clients && <Clients content={props.clients}/>}

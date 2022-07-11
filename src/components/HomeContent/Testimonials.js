@@ -1,7 +1,6 @@
 import Button from "../Button"
 
 export default function Testimonials(props){
-    console.log(props.reviews)
     return(
         <section className="section testimonials">
             <h3>{props.content.contentText}</h3>

@@ -11,28 +11,10 @@
     top:0;
     min-height: 90px;
     align-items: center;
-    z-index: 3;
+    z-index: 999;
     background-color: #000000;
 }
-.menu{
-    align-items: flex-start;
-    position: absolute;
-    left: 10px;
-    display: flex;
-    flex-direction: row;
-}
-.hamberg{
-    display: flex;
-    flex-direction: column;
-}
-.hamberg>span{
-    width: 70px;
-    height: 2px;
-    background-color: aliceblue;
-    content: "";
-    display: inline-block;
-    margin: 5px;
-}
+
 /* Body */
 .section{
     min-height: 100vh;
@@ -272,4 +254,15 @@ h4{
         float: none;
         margin: auto;
     }
+}
+.floater:nth-child(1){
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}
+.floater:nth-child(2){
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-90deg);
 }
