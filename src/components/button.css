@@ -1,0 +1,25 @@
+.def-btn{
+    min-width: fit-content;
+    color: #ffffff;
+    font-weight: 100;
+    font-size: small;
+    padding: 10px 20px;
+    margin: 10px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.def-btn:hover{
+    border:0;
+}
+.def-btn.active{
+    background: linear-gradient(45deg, #F9D423, #FF4E50);
+    border: 1px solid #000;
+    color: #000;
+}
+.def-btn.def-btn.active:hover{
+    background: transparent;
+    color: #fff;
+}

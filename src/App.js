@@ -1,23 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import './style.css';
+import Header from './components/Header';
+import Content from './components/HomeContent';
+import Footer from './components/Footer';
+import { useEffect, useState } from 'react';
+import {client} from './client';
+import DATA from './data'
 
 function App() {
+  const [brandLogo, setBrandLogo] = useState('');
+  const [contact, setContact] = useState(null);
+  const [whyus, setWhyus] = useState(null);
+  const [clients, setClients] = useState(null);
+  const [services, setServices] = useState(null);
+  const [front, setFront] = useState(null);
+  const [blog, setBlog] = useState(null);
+  const [testimonial, setTestimonial] = useState(null);
+  let [reviews, setReviews] = useState(null);
+  const [footerContent, setFooterContent] = useState(null);
+  
+  useEffect(()=>{
+    client.getEntries().then((res)=>{
+      //  let res = DATA;
+       setReviews([]);
+        console.log(res);
+        for(let i=0; i<res.items.length; i++){
+          let field = res.items[i].fields;
+          // console.log(field.contentText)
+          if(field.contentText === "BrandLogo"){
+            setBrandLogo(field.images.fields.file.url)
+          }
+          else if(field.contentText === "Contact") {
+            // console.log("contact");
+            setContact(field);
+          }
+          else if(field.contentText === "why us?") {
+            setWhyus(field);
+            // console.log("whyus"+JSON.stringify(field))
+          }
+          else if(field.contentText === "clients"){
+            // console.log("client"+JSON.stringify(field))
+            setClients(field);
+          } 
+          else if(field.contentText === "Our services"){
+            // console.log('services');
+            setServices(field);
+          }
+          else if(field.contentText === "front"){
+            // console.log('front');
+            setFront(field);
+          }
+          else if(field.contentText === "Blog"){
+            // console.log("blog");
+            setBlog(field);
+          }
+          else if(field.contentText === "Testimonials" || field.author){
+            if(field.author){
+              setReviews(prev => [...prev, field]);
+            }
+            else setTestimonial(field);
+          }
+          else if(field.contentText == "footer"){
+            setFooterContent(field);
+          }
+        }
+      })
+      .catch((e)=>{
+        console.error(e);
+      })
+  }, []);//[brandLogo, contact, whyus, clients, services, front, blog, testimonial])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header logo={brandLogo}/>
+      <Content contact={contact} whyus={whyus} clients={clients} services={services} front={front} blog={blog} testimonial={testimonial} reviews={reviews}/>
+      <Footer logo={brandLogo} content={footerContent}/>
     </div>
   );
 }
