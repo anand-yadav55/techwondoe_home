@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Hosted
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is hosted on https://techwondoehome.netlify.app
 
 ## Install on local machine
 
